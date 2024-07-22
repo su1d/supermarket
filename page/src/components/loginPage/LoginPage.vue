@@ -43,7 +43,7 @@ export default {
   密码:
     <ElInput type="password" v-model="password" placeholder="请输入你的密码"></ElInput></ElRow>
   <ElRow>
-    <ElButton type="primary" @click="login">登录</ElButton> 
+    <ElButton type="primary" @click="login">登录</ElButton>
   </ElRow>
 </template>
 
