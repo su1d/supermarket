@@ -12,14 +12,11 @@ module.exports = {
     port: 8081,
     /* 使用代理 */
     proxy: {
-      '/api/*': {
+      '/*': {
         /* 目标代理服务器地址 */
         target: 'http://localhost:10052',
         /* 允许跨域 */
         changeOrigin: true,
-        pathRewrite:{
-          '^/api': ''  /* 重写路径，去掉'/api' */
-        }
       },
     },
   },

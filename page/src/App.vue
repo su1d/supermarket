@@ -1,14 +1,16 @@
 <template>
-  <LoginPage></LoginPage>
+  <nav>
+    <login-page></login-page>
+  </nav>
+  <router-view/>
 </template>
 
 <script>
-import LoginPage from "@/components/loginPage/LoginPage.vue";
-
+import loginPage from '@/views/login/LoginPage.vue'
 export default {
   name: 'App',
   components: {
-    LoginPage
+    loginPage
   }
 }
 </script>
@@ -20,6 +22,18 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+}
+
+nav {
+  padding: 30px;
+}
+
+nav a {
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+nav a.router-link-exact-active {
+  color: #42b983;
 }
 </style>

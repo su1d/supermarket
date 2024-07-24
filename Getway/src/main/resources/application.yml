@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: gatetway
+  cloud:
+    gateway:
+      routes:
+        - id: system
+          uri: lb://system
+          predicates:
+            - Path=/system/**    #以system开头的请求都负载到system服务
+server:
+  port: 10052
