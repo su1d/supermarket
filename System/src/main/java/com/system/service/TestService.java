@@ -1,4 +1,4 @@
-package com.system.Service;
+package com.system.service;
 
 public interface TestService {
 }

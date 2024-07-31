@@ -1,4 +1,4 @@
-package com.system.Service.Impl;
+package com.system.service.impl;
 
 public class TestServiceImpl {
 }

@@ -1,4 +1,11 @@
 spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/gateway?useUnicode=true&characterEncoding=utf8
+    username: root
+    password: 123456
+  main:
+    web-application-type: reactive
   application:
     name: Gateway
   cloud:
@@ -7,8 +14,8 @@ spring:
         server-addr: 127.0.0.1:8848  # Nacos server 地址
     gateway:
       routes:
-        - id: system
-          uri: lb://system
+        - id: System
+          uri: lb://System
           predicates:
             - Path=/system/**    #以system开头的请求都负载到system服务
 server:
