@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: Inventory
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848  # Nacos server 地址
+      client:
+        service:
+          name: inventory-service    # Nacos 注册的应用名
+server:
+  port: 9200
