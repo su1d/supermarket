@@ -5,5 +5,7 @@
 <mapper namespace="com.system.mapper.SystemUserMapper">
 
 
-
+    <select id="getAllUsers" resultType="com.system.pojo.SystemUser">
+        select * from system_user;
+    </select>
 </mapper>
