@@ -7,4 +7,6 @@ import java.util.List;
 public interface SystemUserService {
 
     List<SystemUser> findAllUsers();
+
+    SystemUser checkLogin(SystemUser systemUser);
 }

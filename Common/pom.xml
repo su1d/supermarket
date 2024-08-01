@@ -7,10 +7,10 @@
         <artifactId>supermarket</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
-    <artifactId>Gateway</artifactId>
+    <artifactId>Common</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>Gateway</name>
-    <description>Gateway</description>
+    <name>Common</name>
+    <description>Common</description>
     <url/>
     <licenses>
         <license/>
@@ -30,40 +30,24 @@
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter</artifactId>
         </dependency>
         <dependency>
-            <groupId>com.auth0</groupId>
-            <artifactId>java-jwt</artifactId>
-            <version>3.14.0</version>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-redis</artifactId>
         </dependency>
-        <!--网关依赖-->
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-gateway</artifactId>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.springframework.boot</groupId>
-                    <artifactId>spring-boot-starter-web</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-loadbalancer</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com</groupId>
-            <artifactId>common-core</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-            <scope>compile</scope>
-        </dependency>
+
+<!--        <dependency>-->
+<!--            <groupId>com.fasterxml.jackson.core</groupId>-->
+<!--            <artifactId>jackson-databind</artifactId>-->
+<!--            <version>2.13.4.1</version>-->
+<!--        </dependency>-->
     </dependencies>
 
+    <modules>
+        <module>common-core</module>
+    </modules>
+    <packaging>pom</packaging>
     <build>
         <plugins>
             <plugin>

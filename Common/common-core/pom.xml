@@ -4,13 +4,13 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com</groupId>
-        <artifactId>supermarket</artifactId>
+        <artifactId>Common</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
-    <artifactId>System</artifactId>
+    <artifactId>common-core</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>System</name>
-    <description>System</description>
+    <name>common-core</name>
+    <description>common-core</description>
     <url/>
     <licenses>
         <license/>
@@ -29,18 +29,13 @@
     </properties>
     <dependencies>
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter</artifactId>
+            <groupId>com.auth0</groupId>
+            <artifactId>java-jwt</artifactId>
+            <version>3.14.0</version>
         </dependency>
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com</groupId>
-            <artifactId>common-core</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-            <scope>compile</scope>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-web</artifactId>
         </dependency>
     </dependencies>
 

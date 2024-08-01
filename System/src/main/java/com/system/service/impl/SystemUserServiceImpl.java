@@ -22,4 +22,11 @@ public class SystemUserServiceImpl implements SystemUserService {
         List<SystemUser> allUsers = systemUserMapper.getAllUsers();
         return allUsers;
     }
+
+    @Override
+    public SystemUser checkLogin(SystemUser systemUser) {
+        return systemUserMapper.checkLogin(systemUser);
+    }
+
+
 }

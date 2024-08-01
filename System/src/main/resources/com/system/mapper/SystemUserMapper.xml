@@ -8,4 +8,8 @@
     <select id="getAllUsers" resultType="com.system.pojo.SystemUser">
         select * from system_user;
     </select>
+
+    <select id="checkLogin" resultType="com.system.pojo.SystemUser">
+        select * from system_user where username=#{username} and password=#{password} limit 1;
+    </select>
 </mapper>
