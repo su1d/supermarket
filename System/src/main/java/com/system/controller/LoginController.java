@@ -36,7 +36,7 @@ public class LoginController {
             String token = TokenUtils.token(login.getUsername(), login.getPassword());
             log.info("用户{}登录成功", login.getUsername());
             // 记录token到redis
-            Long expireTime = Long.valueOf(TokenUtils.getValueByKey(token, Constants.LOGIN_EXPIRETIME));
+            long expireTime = Long.parseLong(TokenUtils.getValueByKey(token, Constants.LOGIN_EXPIRETIME));
             redisService.setCacheObject(login.getUsername(), login, expireTime / 1000, TimeUnit.SECONDS);
             Cookie cookie = new Cookie("Authorization", token);
             cookie.setPath("/");
