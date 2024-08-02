@@ -27,10 +27,13 @@
 
 <script>
 import axios from "axios";
+import CryptoJS from 'crypto-js'
 
 export default {
   data() {
     return {
+      key : 'your-32bit-length-secret-key',
+      iv : 'my-initialization-vector',
       credentials: {
         username: '',
         password: '',
@@ -44,15 +47,29 @@ export default {
   },
   methods: {
     submitForm() {
+      const encrypted = this.aesDecrypt(this.key, this.iv).toString();
+      console.log("加密后的密码为:"+encrypted)
       if (this.canSubmit) {
-        axios.post("/system/login",{
+        axios.post("/system/login", {
           username: this.credentials.username,
-          password: this.credentials.password,
-        }).then(res=>{
+          password: encrypted,
+        }).then(res => {
           console.log(res);
         })
       }
     },
+    aesDecrypt(secretKey, iv) {
+      secretKey = 'my-secret-key'; // AES密钥长度可以是128, 192, 256位
+      iv = 'my-initialization-vector'; // 对于AES，IV通常是16字节长度
+
+      // 将字符串密码转换为加密库所需的格式
+      const utf8 = CryptoJS.enc.Utf8;
+      return CryptoJS.AES.encrypt(
+          utf8.parse(this.password),
+          utf8.parse(secretKey),
+          {iv: utf8.parse(iv), mode: CryptoJS.mode.CBC, padding: CryptoJS.pad.Pkcs7}
+      ).toString();
+    }
   },
 };
 </script>

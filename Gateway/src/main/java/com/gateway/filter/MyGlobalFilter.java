@@ -17,13 +17,19 @@ public class MyGlobalFilter implements GlobalFilter, Ordered {
     public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
         // 在调用chain之前执行的逻辑，比如身份验证、日志记录等
         HttpCookie httpCookie = exchange.getRequest().getCookies().getFirst("Authorization");
-        String authorization = httpCookie.getValue();
-        boolean verify = TokenUtils.verify(authorization);
-        if (!verify) {
-            // 身份验证失败，返回401 Unauthorized
+        String authorization = null;
+        if (httpCookie == null) {
+            // 没有token，返回401 Unauthorized
+
+        } else {
+            authorization = httpCookie.getValue();
+            boolean verify = TokenUtils.verify(authorization);
+            if (!verify) {
+                // 身份验证失败，返回401 Unauthorized
 //            return exchange.getResponse().setStatusCode(HttpStatus.UNAUTHORIZED)
+            }
+            // 继续过滤器链
         }
-        // 继续过滤器链
         return chain.filter(exchange);
     }
 
